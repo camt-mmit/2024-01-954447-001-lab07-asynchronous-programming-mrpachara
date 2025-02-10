@@ -1,0 +1,84 @@
+<form [formGroup]="formGroup()">
+  <fieldset [disabled]="formGroup().disabled" class="-cmp-form-group-container">
+    <div class="app-cmp-data-form">
+      <label class="app-cl-control">
+        <b class="app-cl-title">Student ID</b>
+        <input type="text" formControlName="studentId" class="app-cl-code" />
+      </label>
+
+      <label class="app-cl-control">
+        <b class="app-cl-title">Firstname</b>
+        <input type="text" formControlName="firstname" />
+      </label>
+
+      <label class="app-cl-control">
+        <b class="app-cl-title">Lastname</b>
+        <input type="text" formControlName="lastname" />
+      </label>
+
+      <label class="app-cl-control">
+        <b class="app-cl-title">Age</b>
+        <input type="number" formControlName="age" class="app-cl-number" />
+      </label>
+
+      <label class="app-cl-control">
+        <b class="app-cl-title">Autobiography</b>
+        <textarea formControlName="autobiography" rows="10"></textarea>
+      </label>
+    </div>
+
+    <fieldset
+      formArrayName="friends"
+      [disabled]="friendsFormArray().disabled"
+      class="-cmp-frields-container"
+    >
+      <legend>
+        <b>Friends</b>
+        <button
+          type="button"
+          (click)="add()"
+          class="app-cl-button app-cl-primary"
+        >
+          <i class="material-symbols-outlined">add</i>
+        </button>
+      </legend>
+      @for (control of friendsFormArray().controls; track control) {
+        <fieldset class="-cmp-friend" [disabled]="control.disabled">
+          <button
+            type="button"
+            [disabled]="$first"
+            (click)="move($index, -1)"
+            class="app-cl-button"
+          >
+            <i class="material-symbols-outlined">arrow_upward</i>
+          </button>
+          <button
+            type="button"
+            [disabled]="$last"
+            (click)="move($index, +1)"
+            class="app-cl-button"
+          >
+            <i class="material-symbols-outlined">arrow_downward</i>
+          </button>
+          <label class="-cl-control">
+            <b class="-cl-title"
+              >Friend
+              <span class="-cl-title-number app-cl-number">{{
+                $index + 1
+              }}</span></b
+            >
+            <input type="text" [formControlName]="$index" />
+          </label>
+          <button
+            type="button"
+            [disabled]="$count === 1"
+            (click)="remove($index)"
+            class="app-cl-button app-cl-warn"
+          >
+            <i class="material-symbols-outlined">delete_forever</i>
+          </button>
+        </fieldset>
+      }
+    </fieldset>
+  </fieldset>
+</form>

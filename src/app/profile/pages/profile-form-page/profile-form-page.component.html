@@ -1,0 +1,7 @@
+<div class="app-cl-main-content">
+  @if (ready()) {
+    <app-profile-form [(data)]="data" />
+  } @else {
+    <p>Loading...</p>
+  }
+</div>

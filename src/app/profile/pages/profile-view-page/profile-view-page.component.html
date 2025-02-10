@@ -1,0 +1,11 @@
+<div class="app-cl-main-content">
+  @if (ready()) {
+    @if (data(); as storedData) {
+      <app-profile-view [data]="storedData" />
+    } @else {
+      <p>No data in storage</p>
+    }
+  } @else {
+    <p>Loading...</p>
+  }
+</div>

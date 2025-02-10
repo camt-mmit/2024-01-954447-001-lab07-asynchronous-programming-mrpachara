@@ -1,0 +1,22 @@
+<dl class="app-cmp-data-list">
+  <dt class="app-cl-title">Student ID</dt>
+  <dd>
+    <span class="app-cl-code">{{ data().studentId }}</span>
+  </dd>
+
+  <dt class="app-cl-title">Fullname</dt>
+  <dd>{{ data().firstname }} {{ data().lastname }}</dd>
+
+  <dt class="app-cl-title">Age</dt>
+  <dd>
+    <span class="app-cl-number">{{ data().age }}</span> years
+  </dd>
+
+  <dt class="app-cl-title">Autobiography</dt>
+  <dd>
+    <pre>{{ data().autobiography }}</pre>
+  </dd>
+
+  <dt class="app-cl-title">Friends</dt>
+  <dd>{{ friends() }}</dd>
+</dl>

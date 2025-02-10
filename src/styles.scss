@@ -1,1 +1,167 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --app-font: 'Roboto Flex', 'Noto+Sans Thai Looped';
+  --app-mono-space-font: 'Roboto Mono';
+  --app-font-size: 16px;
+
+  --app-background-color: #ffffff;
+
+  --app-primary-color: #0000ff;
+  --app-warn-color: #ff0000;
+
+  font-family: var(--app-font);
+  font-size: var(--app-font-size);
+}
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+
+  height: 100%;
+
+  background-color: var(--app-background-color);
+}
+
+.app-cl-main-content {
+  width: min(100%, 480px);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-cmp-links {
+  margin-bottom: 1em;
+
+  & > ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 8px;
+    justify-content: center;
+
+    & > li {
+      padding: 0px;
+      margin: 0px;
+
+      color: var(--app-primary-color);
+
+      border: 1px solid currentColor;
+      border-radius: 4px;
+
+      & > * {
+        display: inline-block;
+        box-sizing: border-box;
+        height: 100%;
+        margin: 0px;
+        padding: 0.5em 1ch;
+
+        text-decoration: none;
+        color: inherit;
+
+        font-weight: bold;
+
+        &:hover {
+          background-color: rgb(50% 50% 50% / 25%);
+        }
+
+        &.app-st-active {
+          background-color: rgb(50% 50% 50% / 75%);
+        }
+      }
+    }
+  }
+}
+
+.app-cl-code,
+.app-cl-number {
+  font-family: var(--app-mono-space-font);
+  font-size: inherit;
+}
+
+.app-cl-number {
+  text-align: right;
+}
+
+.app-st-hidden {
+  visibility: hidden;
+}
+
+.app-cl-button {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+  align-items: center;
+
+  font-weight: bold;
+
+  &:disabled {
+    opacity: 0.25;
+  }
+}
+
+.app-cl-primary {
+  color: var(--app-primary-color);
+}
+
+.app-cl-warn {
+  color: var(--app-warn-color);
+}
+
+.app-cmp-data-list {
+  display: grid;
+  grid-template-columns: 12ch 1fr;
+
+  & > :last-child {
+    margin-bottom: 1em;
+  }
+
+  & > .app-cl-title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+    font-weight: bold;
+
+    & > .app-cl-title-number {
+      margin-left: auto;
+    }
+  }
+}
+
+.app-cmp-data-form {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  & > .app-cl-control {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: baseline;
+
+    column-gap: 8px;
+
+    & > .app-cl-title {
+      width: 12ch;
+    }
+
+    & > :is(input, textarea) {
+      flex: 1 0 auto;
+    }
+  }
+}
+
+.app-cl-title-number {
+  display: inline-block;
+  width: 3ch;
+  padding-left: 1ch;
+  padding-right: 1ch;
+}
